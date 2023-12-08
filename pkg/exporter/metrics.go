@@ -131,7 +131,11 @@ func (e *Exporter) MetricsHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Get scripts from url parameter
 	params := r.URL.Query()
+        fmt.Println("******* BEGIN ***")
+        fmt.Println(params)
 	scriptNames := params["script"]
+        fmt.Println(scriptNames)
+        fmt.Println("******* END ***")
 	if len(scriptNames) == 0 {
 		errorStr := "Script parameter is missing"
 		level.Error(e.Logger).Log("err", errorStr)

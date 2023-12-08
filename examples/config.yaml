@@ -24,6 +24,8 @@ scripts:
   - name: ping
     command: ./examples/ping.sh
     cacheDuration: 1m
+    args:
+      - localhost 
   - name: helloworld
     command: ./examples/helloworld.sh
     args:
@@ -35,7 +37,7 @@ scripts:
   - name: sleep
     command: sleep
     args:
-      - "120"
+      - "1"
     timeout:
       enforced: true
   - name: docker

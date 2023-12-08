@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  script_exporter:
+    hostname: script_exporter 
+    container_name: script_exporter 
+    image: ricoberger/script_exporter:v2.16.0
+    # ports:
+    #  - "9469:9469"
+    volumes:
+      - ./examples:/examples
+    command:
+      - '-config.file=/examples/config.yaml'
+  prometheus:
+    hostname: prometheus 
+    container_name: prometheus
+    image: prom/prometheus:v2.2.1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./examples/prometheus.yml:/etc/prometheus/prometheus.yml
